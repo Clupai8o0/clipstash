@@ -9,6 +9,10 @@ edition = "2018"
 name = "clipstash"
 path = "src/lib/mod.rs"
 
+[domain]
+name = "domain"
+path = "src/lib/domain/mod.rs"
+
 [dependencies]
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
