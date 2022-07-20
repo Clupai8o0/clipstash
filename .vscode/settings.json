@@ -4,6 +4,7 @@
     },
     "cSpell.ignoreWords": [
         "chrono",
+        "datetime",
         "shortcode",
         "thiserror"
     ]
