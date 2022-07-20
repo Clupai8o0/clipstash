@@ -3,6 +3,8 @@
         "DATABASE_URL": "sqlite:data.db"
     },
     "cSpell.ignoreWords": [
-        "shortcode"
+        "chrono",
+        "shortcode",
+        "thiserror"
     ]
 }
