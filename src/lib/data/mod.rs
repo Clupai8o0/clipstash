@@ -2,6 +2,20 @@ use derive_more::{Display, From};
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 use std::str::FromStr;
+use thiserror;
+use sqlx::Database;
+
+#[derive(Debug, thiserror::Error)]
+pub enum DataError {
+  #[error("database error: {0}")]
+  Database(#[from] sqlx::Error)
+}
+
+pub type AppDatabase = Database<Sqlite>;
+pub type DatabasePool = sqlx::sqlite::SqlitePool;
+pub type Transaction<'t> = sqlx::Transaction<'t, Sqlite>;
+pub type AppDatabaseRow = sqlx::sqlite::SqliteRow;
+pub type AppQueryResult = sqlx::sqlite::SqliteQueryResult;
 
 #[derive(Clone, Debug, From, Display, Deserialize, Serialize)]
 pub struct DbId(Uuid);
