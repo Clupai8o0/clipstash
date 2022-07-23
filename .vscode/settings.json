@@ -7,6 +7,10 @@
         "datetime",
         "shortcode",
         "sqlx",
+        "structopt",
         "thiserror"
+    ],
+    "cSpell.words": [
+        "clipstash"
     ]
 }
