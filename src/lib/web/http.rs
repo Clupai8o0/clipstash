@@ -1,21 +1,19 @@
 use crate::data::AppDatabase;
 use crate::service;
 use crate::service::action;
-use crate::service::{ctx, form, renderer::Renderer, PageError};
 use crate::{ServiceError, ShortCode};
+use super::{ctx, form, renderer::Renderer, PageError};
 
 use rocket::form::{Contextual, Form};
 use rocket::http::{Cookie, CookieJar, Status};
-use rocket::response::content::Html;
+use rocket::response::content::RawHtml;
 use rocket::response::{status, Redirect};
 use rocket::{uri, State};
 
-use super::ctx;
-
 #[rocket::get("/")]
-fn home(renderer: &State<Renderer<'_>>) -> Html<String> {
+fn home(renderer: &State<Renderer<'_>>) -> RawHtml<String> {
   let context = ctx::Home::default();
-  Html(renderer.render(context, &[]))
+  RawHtml(renderer.render(context, &[]))
 }
 
 pub fn routes() -> Vec<rocket::Route> {
